@@ -210,7 +210,10 @@ public class FinancialTracker {
     }
 
     private static void displayLedger() {
-        
+        System.out.println("Ledger");
+        for (Transaction transaction: transactions) {
+            System.out.println(transaction);
+        }
     }
 
     private static void displayDeposits() {
