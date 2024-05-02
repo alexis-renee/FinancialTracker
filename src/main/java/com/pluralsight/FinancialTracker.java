@@ -217,15 +217,27 @@ public class FinancialTracker {
     }
 
     private static void displayDeposits() {
-        // This method should display a table of all deposits in the `transactions` ArrayList.
-        // The table should have columns for date, time, vendor, and amount.
-    }
+        System.out.println("Date\nTime\nVendor\nAmount");
+        System.out.println("*****************");
 
+        for (Transaction deposit : transactions) {
+            double amount = deposit.getAmount();
+            if (amount > 0) {
+                System.out.println(deposit);
+            }
+        }
+    }
     private static void displayPayments() {
-        // This method should display a table of all payments in the `transactions` ArrayList.
-        // The table should have columns for date, time, vendor, and amount.
-    }
+        System.out.println("Date\nTime\nVendor\nAmount");
+        System.out.println("*****************");
 
+        for (Transaction deposit : transactions) {
+            double amount = deposit.getAmount();
+            if (amount < 0) {
+                System.out.println(deposit);
+            }
+        }
+    }
     private static void reportsMenu(Scanner scanner) {
         boolean running = true;
         while (running) {
