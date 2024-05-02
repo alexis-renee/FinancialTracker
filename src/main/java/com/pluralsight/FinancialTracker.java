@@ -127,11 +127,51 @@ public class FinancialTracker {
     }
 
     private static void addPayment(Scanner scanner) {
-        // This method should prompt the user to enter the date, time, vendor, and amount of a payment.
-        // The user should enter the date and time in the following format: yyyy-MM-dd HH:mm:ss
-        // The amount should be a positive number.
-        // After validating the input, a new `Payment` object should be created with the entered values.
-        // The new payment should be added to the `transactions` ArrayList.
+        System.out.println("Enter the date (yyyy-MM-dd):");
+        String userDate = scanner.nextLine();
+        LocalDate date = LocalDate.parse(userDate, DATE_FORMATTER);
+
+        System.out.println("Enter the time (HH:mm:ss):");
+        String userTime = scanner.nextLine();
+        LocalTime time = LocalTime.parse(userTime, TIME_FORMATTER);
+
+        System.out.println("Enter a description of Payment ");
+        String description = scanner.nextLine();
+
+        System.out.println("Enter the vendor:");
+        String vendor = scanner.nextLine();
+
+        double amount;
+        while (true) {
+            System.out.println("Enter the amount:");
+            try {
+                amount = Double.parseDouble(scanner.nextLine());
+                if (amount <= 0) {
+                    System.out.println("Must be a positive number.");
+                } else {
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid Please enter a number.");
+            }
+        }
+
+        Transaction deposit = new Transaction();
+        transactions.add(deposit);
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("transactions.csv", true))){
+            for (Transaction transaction : transactions) {
+                String formattedTransaction = String.format("%s|%s|%s|%s|%.2f\n",transaction.getDate(),transaction.getTime(),
+                        transaction.getDescription(),transaction.getVendor(),transaction.getAmount());
+                writer.write(formattedTransaction);
+                writer.newLine();
+            }
+            System.out.println("Payment has been saved to file");
+        }catch (IOException e) {
+            System.out.println("Error writing file: " + e.getMessage());
+        }
+        scanner.close();
+
     }
 
     private static void ledgerMenu(Scanner scanner) {
@@ -170,8 +210,7 @@ public class FinancialTracker {
     }
 
     private static void displayLedger() {
-        // This method should display a table of all transactions in the `transactions` ArrayList.
-        // The table should have columns for date, time, vendor, type, and amount.
+        
     }
 
     private static void displayDeposits() {
