@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -9,31 +10,37 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static java.lang.Double.parseDouble;
+
 
 public class FinancialTracker {
-    private static ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+    private static ArrayList<Deposit> transactions = new ArrayList<Deposit>();
     private static final String FILE_NAME = "transactions.csv";
     private static final String DATE_FORMAT = "yyyy-MM-dd";
     private static final String TIME_FORMAT = "HH:mm:ss";
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern(DATE_FORMAT);
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern(TIME_FORMAT);
+    private Scanner scanner;
 
     public static void main(String[] args) {
-        BufferedReader br = new BufferedReader(new FileReader(FILE_NAME));
-        String line;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(FILE_NAME));
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        String line = "";
         String[] tokens = line.split("\\|");
         LocalDate date = LocalDate.parse(tokens[0], DATE_FORMATTER);
         LocalTime time = LocalTime.parse(tokens[1], TIME_FORMATTER);
         String description = tokens[2];
         String vendor = tokens[3];
-        double price = Double.parseDouble(tokens[4]);
+        double price = parseDouble();
         Exception e;
+        Scanner scanner = null;
         String input = scanner.nextLine().trim();
 
-        FinancialTracker("Invalid option");
-
         loadTransactions(FILE_NAME);
-        Scanner scanner = new Scanner(System.in);
+        scanner = new Scanner(System.in);
         boolean running = true;
         while (running) {
             System.out.println("Welcome to TransactionApp");
@@ -42,7 +49,7 @@ public class FinancialTracker {
             System.out.println("P) Make Payment (Debit)");
             System.out.println("L) Ledger");
             System.out.println("X) Exit");
-            String input = scanner.nextLine().trim();
+            input = scanner.nextLine().trim();
 
             switch (input.toUpperCase()) {
                 case "D":
@@ -69,6 +76,9 @@ public class FinancialTracker {
         }
     }
 
+    private static void addPayment(Scanner scanner) {
+    }
+
     public static void loadTransactions(String fileName) {
     }
 
@@ -79,7 +89,7 @@ public class FinancialTracker {
 //            }
     }
 
-    public void promptAndAddDeposit() {
+    public void AddDeposit() {
 
         System.out.println("Enter date and time (yyyy-MM-dd HH:mm:ss");
         String dateTimeString = scanner.nextLine();
@@ -97,14 +107,14 @@ public class FinancialTracker {
 
         //Prompt for vendor
         System.out.println("Enter vendor ");
-        String vendor = scannner.nextLine();
+        String vendor = scanner.nextLine();
 
 
         //Prompt for amount
         System.out.println("Enter amount: ");
         double amount = 0;
         try {
-            amount = Double.parseDouble();
+            amount = parseDouble();
             if (amount <= 0) {
                 System.out.println("Amount must be a positive number.");
                 return;
@@ -138,6 +148,10 @@ public class FinancialTracker {
 //                        }
     }
 
+    private static double parseDouble() {
+        return 0;
+    }
+
     private static void ledgerMenu(Scanner scanner) {
         boolean running = true;
         while (running) {
@@ -146,7 +160,7 @@ public class FinancialTracker {
 
     private static void displayLedger() {
         System.out.println("displayLedger");
-        for (Transaction transaction : transactions) {
+        for (Deposit transaction : transactions) {
             System.out.println(transaction);
         }
     }
@@ -164,10 +178,11 @@ public class FinancialTracker {
             return;
 
         }
-        System.out.println("*****************");
+        System.out.println("************");
 
-        for (Transaction Payment : transactions) {
-            double amount = payment.getAmount();
+        for (Deposit Payment : transactions) {
+            double amount;
+            amount = Payment.getAmount();
             if (amount < 0) {
 
             }
@@ -228,6 +243,14 @@ public class FinancialTracker {
         // If no transactions match the specified vendor name, the method prints a message indicating that there are no results.    }
     }
 
+    private class Deposit {
+        public Deposit(LocalDateTime dateTime, String vendor, double amount) {
+        }
+
+        public double getAmount() {
+            return 0;
+        }
+    }
 }
 
 
