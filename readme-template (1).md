@@ -1,6 +1,6 @@
 # Financial Data Tracker
 
-## This Java console application serves as an Efficient financial Data tool. Its primary purpose is to help users track their transactions, including deposits and payments, and view summaries of their financial activities.
+## This Java console application serves as an efficient financial Data tool. Its primary purpose is to help users track their transactions, including deposits and payments, and view summaries of their financial activities.
 
 
 ## User Stories
