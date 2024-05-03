@@ -257,16 +257,20 @@ public class FinancialTracker {
                 case "1":
               LocalDate currentDate = LocalDate.now(); LocalDate startCurrentMonth = currentDate.withDayOfMonth(1);
                 filterTransactionsByDate( startCurrentMonth, currentDate);
+                break;
+
                 case "2":
                LocalDate previousDate = LocalDate.now().minusMonths(1);
                  LocalDate startPreviousMonth = previousDate.withDayOfMonth(1);
                  LocalDate endPreviousMonth = previousDate.withDayOfMonth(previousDate.lengthOfMonth());
                  filterTransactionsByDate( startPreviousMonth, endPreviousMonth);
-break;
+                 break;
+
                 case "3":
                 currentDate = LocalDate.now();
                 LocalDate startCurrentYear = currentDate.withDayOfYear(1);
                 filterTransactionsByDate( startCurrentYear, currentDate);
+                break;
 
                 case "4":
                 previousDate = LocalDate.now().minusYears(1);
@@ -279,6 +283,8 @@ break;
                     System.out.println("Enter Vendor");
                     String Vendor = scanner.nextLine();
                     filterTransactionsByVendor();
+                    break;
+
                 case "0":
                     running = false;
                 default:

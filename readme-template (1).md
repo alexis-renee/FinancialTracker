@@ -1,21 +1,23 @@
-# Project Title
+# Financial Data Tracker
 
-## Description of the Project
+## This Java console application serves as an Efficient financial Data tool. Its primary purpose is to help users track their transactions, including deposits and payments, and view summaries of their financial activities.
 
-Briefly describe what this Java console application does. Mention its purpose and who the intended users are. Explain the main functionality and what problems it aims to solve.
-
-![Class Diagram](path/to/your/class_diagram.png)
 
 ## User Stories
-
-List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
 
 - As a user, I want to be able to input my data, so that the application can process it accordingly.
 - As a user, I want to receive immediate feedback, so I can understand what to do next.
 
 ## Setup
 
-Instructions on how to set up and run the project using IntelliJ IDEA.
+1. Download and Install IntelliJ IDEA
+2. Create a New Project
+3. Set up specific Project
+4. Create Java Classes
+5. Copy/Paste or Create Java Files
+6. Configure Main Class
+7. Run the Application 
+8. Interact with the Console  
 
 ### Prerequisites
 
@@ -34,8 +36,8 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Technologies Used
 
-- Java: Mention the version you are using.
-- Any additional libraries or frameworks used in the project.
+- IntelliJ Java: Maven 17
+- MacBook Pro
 
 ## Demo
 
@@ -44,27 +46,24 @@ Include screenshots or GIFs that show your application in action. Use tools like
 ![Application Screenshot](path/to/your/screenshot.png)
 
 ## Future Work
+In the future I want to add features for setting budgets and financial goals.
+also, Track progress towards goals and provide notifications/alerts when payment limits are reached.
 
-Outline potential future enhancements or functionalities you might consider adding:
-
-- Additional feature to be developed.
-- Improvement of current functionalities.
 
 ## Resources
 
-List resources such as tutorials, articles, or documentation that helped you during the project.
-
-- [Java Programming Tutorial](https://www.example.com)
-- [Effective Java](https://www.example.com)
+- Workbook 2-3 IntelliJ/Java Fundamentals 
+- Youtube "How to Code for beginners"
 
 ## Team Members
 
-- **Name 1** - Specific contributions or roles.
-- **Name 2** - Specific contributions or roles.
+- **Haby Kane** 
+- **Husnain Arif**
+- **Ben Bergman**
 
-## Thanks
+## Thank You!!
 
 Express gratitude towards those who provided help, guidance, or resources:
 
-- Thank you to [Mentor's Name] for continuous support and guidance.
+- Thank you to Everyone in Application Development for continuous support, patience and guidance every step of the way.
 - A special thanks to all teammates for their dedication and teamwork.
