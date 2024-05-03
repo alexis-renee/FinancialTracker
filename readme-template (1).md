@@ -4,9 +4,11 @@
 
 
 ## User Stories
-
-- As a user, I want to be able to input my data, so that the application can process it accordingly.
-- As a user, I want to receive immediate feedback, so I can understand what to do next.
+1. As a User, I would like to have a useful function that can check my expenses and income efficiently.
+2. As s User, I want to analyze data, time, vendor, description, and amount for each transaction.
+3. As a User, I want to have a functional user input for new deposit transactions to ensure they are recorded accurately in the system. 
+4. As a user, I want to be able to input my data, so that the application can process it accordingly. 
+5. As a user, I want to receive immediate feedback, so I can understand what to do next.
 
 ## Setup
 
